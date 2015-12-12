@@ -32,9 +32,11 @@ Technologies to implement in the future:
 * Users can click the map in order to zoom into that location to learn more and see recommended destinations.
 * Users can click on destinations to see recommendations, comments, and pictures from other users and information from TripAdvisor.com.
 * Users can register or log in to the site for additional functionality.
+
 #### Registered Users
 * Once users are registered and logged in, they can save destinations and plan itineraries for future trips.
 * Registered users can also add comments, photos, information,and recommendations about destinations.
+
 ## Wire Frames
 ## Data Model
 ## RESTful Routes
