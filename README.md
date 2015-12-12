@@ -41,3 +41,8 @@ Technologies to implement in the future:
 ## Data Model
 ## RESTful Routes
 ## Style guide
+## Team:
+Name | Email | Github
+---- | ----- | ------
+Genny Langan | cglangan78@gmail.com | cglangan78
+Stefanie Koenig (PM) | stefanie.l.koenig@gmail.com | stefkoenig
