@@ -5,6 +5,7 @@ var
   logger     = require('morgan'),
   path       = require('path'),
   mongoose   = require('mongoose'),
+  ejs        = require('ejs'),
   bodyParser = require('body-parser'),
   apiRouter  = require('./routes/api.js'),
   database   = 'mongodb://localhost/catravelapp',
@@ -19,6 +20,8 @@ mongoose.connect(database, function(err){
  console.log('Successfully connected to database:', database)
 });
 
+app.set('view engine', 'ejs')
+
 //middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -28,7 +31,7 @@ app.use(express.static(path.join(__dirname, '/public')))
 //setting the root route
 app.get('/', function(req,res){
   console.log('getting index?')
-  res.send('index')
+  res.render('index')
 })
 
 //setting the api routes

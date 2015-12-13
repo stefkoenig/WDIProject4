@@ -1,1 +1,1 @@
-angular.module('caliApp', [])
+angular.module('caliApp', ['app.routes'])
