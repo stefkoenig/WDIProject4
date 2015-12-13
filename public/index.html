@@ -3,27 +3,41 @@
 	<head>
 		<title>California </title>
 
-		<!-- Angular -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>	
+		<!-- CDN Angular -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.js"></script>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css">	
-		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css"/>
 
 		<!-- Google Maps API -->
-   		<script src="https://maps.googleapis.com/maps/api/js?key=process.env.CONSUMER_KEY,"></script>
+   	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=process.env.CONSUMER_KEY,"></script> -->
 
    		<!-- JS -->
-   		<script type="text/javascript" src="/js/app.js"></script>
-		<script type="text/javascript" src="/js/destinationController.js"></script>
+   		<!-- Controllers -->
+   		<script type="text/javascript" src="/js/destinationController.js"></script>
 		<script type="text/javascript" src="/js/userController.js"></script>
-		<script type="text/javascript" src="/js/routes.js"></script>
+		<script type="text/javascript" src="/js/mainController.js"></script>
+
+		<!-- Services -->
+
+		<!-- Main Angular app files -->
+   		<script type="text/javascript" src="/js/app.js"></script>
+	
+		<!-- Factories -->
 		<script type="text/javascript" src="/js/caliFactory.js"></script>
+
+		<!-- Routes -->
+		<script type="text/javascript" src="/js/app.routes.js"></script>
+		
 
 	</head>
 	<body>
-	{{4+5}}
-
+		<nav-bar>{{4+5}}</nav-bar>
+			<div class="container">
+				<div ng-view></div>
+			</div>	
 	</body>
 </html>
