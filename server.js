@@ -1,5 +1,6 @@
 var
   express    = require('express'),
+  dotenv     = require('dotenv').load(),
   app        = express(),
   logger     = require('morgan'),
   path       = require('path'),
