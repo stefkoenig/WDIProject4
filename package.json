@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/stefkoenig/WDIProject4/issues"
   },
-  "homepage": "https://github.com/stefkoenig/WDIProject4#readme"
+  "homepage": "https://github.com/stefkoenig/WDIProject4#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7"
+  }
 }
