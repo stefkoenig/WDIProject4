@@ -7,4 +7,8 @@ var
   jwt = require('jsonwebtoken'),
   superSecret = 'viaggiare'
 
+  apiRouter.get('/', function(req,res){
+    res.json({message: 'API routes are working.'})
+  })
+
   

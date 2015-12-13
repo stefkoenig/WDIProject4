@@ -5,14 +5,21 @@ var
   path       = require('path'),
   mongoose   = require('mongoose'),
   bodyParser = require('body-parser'),
-  apiRoutes  = require('.routes/api.js')
-//  apiRoutes  = require()
+  apiRoutes  = require('.routes/api.js'),
+  database   = 'mongodb://localhost/catravelapp',
+// database = 'mongodb://test:test@ds027295.mongolab.com:27295/catravelapp'
+  port       = process.env.PORT || 3000
 
-//Connect to MongoDB using Mongoose
-mongoose.connect('mongodb://localhost/catravelapp', function(err){
-  if(err) throw err
-  console.log('Connected to MonboDB')
+//  apiRoutes  = require()
+apiRouter.get('/', function(req,res){
+	res.json({message: "Api routes are working."})
 })
+
+//establishes connection to MongoDB
+mongoose.connect(database, function(err){
+  if(err) throw err
+ console.log('Successfully connected to database:', database)
+});
 
 //middleware
 app.use(bodyParser.json())
@@ -30,6 +37,6 @@ app.get('/', function(req,res){
 app.use('/api/v1', apiRoutes)
 
 //Server listening on port 3000
-app.listen(3000, function(){
-  console.log('Server listening on port 3000!')
+app.listen(port, function(){
+  console.log('Server listening on port', port)
 })
