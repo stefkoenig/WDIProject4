@@ -8,7 +8,8 @@ var
   apiRoutes  = require('.routes/api.js'),
   database   = 'mongodb://localhost/catravelapp',
 // database = 'mongodb://test:test@ds027295.mongolab.com:27295/catravelapp'
-  port       = process.env.PORT || 3000
+  port       = process.env.PORT || 3000,
+  flash      = require('connect-flash')
 
 //  apiRoutes  = require()
 apiRouter.get('/', function(req,res){
@@ -36,7 +37,7 @@ app.get('/', function(req,res){
 //setting the api routes
 app.use('/api/v1', apiRoutes)
 
-//Server listening on port 3000
+//Server listening on port
 app.listen(port, function(){
   console.log('Server listening on port', port)
 })
