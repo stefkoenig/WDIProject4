@@ -22,6 +22,6 @@ destinationSchema.pre('save', function(next){
   next();
 });
 
-var Destination = mongoose.model('Destination', DestinationSchema)
+var Destination = mongoose.model('Destination', destinationSchema)
 
 module.exports = Destination
