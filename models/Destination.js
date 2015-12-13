@@ -1,14 +1,11 @@
-var 
+var
 	mongoose     = require('mongoose'),
 	Schema       = mongoose.Schema
 
 //destination schema
-var destinationSchema = new Schema({	
+var destinationSchema = new Schema({
 	name: String,
-	specificLocation: {
-		lat: Number,
-		lng: Number
-	},
+	location: {type: [Number]},
 	created_at: Date,
 	comments: [{type: String}],
 	pictures: [{type: String}]
@@ -22,6 +19,6 @@ destinationSchema.pre('save', function(next){
   next();
 });
 
-var Destination = mongoose.model('Destination', DestinationSchema)
+var Destination = mongoose.model('Destination', destinationSchema)
 
 module.exports = Destination
