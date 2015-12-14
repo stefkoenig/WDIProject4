@@ -14,15 +14,18 @@
 		self.name = 'Map'
 
 		self.api = maps
-		console.log('maps', maps)
-		console.log(map)
+		// console.log('maps', maps)
+		// console.log(map)
 
 		self.googleMap = function(){
-		  maps = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -34.397, lng: 150.644},
-		    zoom: 8
+			console.log('hello from googleMap function in controller')
+			  	maps = new google.maps.Map(document.getElementById('map'), {
+				    center: {lat: -34.397, lng: 150.644},
+				    zoom: 8
 		  })
+
 		 } 
+
 	}
 		 
 }());		
