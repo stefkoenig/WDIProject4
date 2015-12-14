@@ -6,13 +6,13 @@
 
 	function mapRoutes($routeProvider, $locationProvider){
 	$routeProvider
-      .when('/map', {
+      .when('/', {
         templateUrl: 'partials/map.html',
         controller: 'mapController',
         controllerAs: 'mapCtrl'
       })
 	  .otherwise({
-	    redirectTo: '/map'
+	    redirectTo: '/'
 	  });
 	}  	
 }());
