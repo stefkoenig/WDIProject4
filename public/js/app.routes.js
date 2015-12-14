@@ -8,8 +8,8 @@
 	$routeProvider
       .when('/', {
         templateUrl: 'partials/map.html',
-        controller: 'mapController',
-        controllerAs: 'mapCtrl'
+        // controller: 'mapController',
+        // controllerAs: 'mapCtrl'
       })
 	  .otherwise({
 	    redirectTo: '/'
