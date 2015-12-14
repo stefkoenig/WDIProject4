@@ -20,8 +20,6 @@ mongoose.connect(database, function(err){
  console.log('Successfully connected to database:', database)
 });
 
-app.set('view engine', 'ejs')
-
 //middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -31,7 +29,8 @@ app.use(express.static(path.join(__dirname, '/public')))
 //setting the root route
 app.get('/', function(req,res){
   console.log('getting index?')
-  res.render('index')
+  // res.render('index')
+  res.sendFile(__dirname + '/public/index.html')
 })
 
 //setting the api routes
@@ -40,4 +39,5 @@ app.use('/api/v1', apiRouter)
 //Server listening on port
 app.listen(port, function(){
   console.log('Server listening on port', port)
+  console.log(process.env.SECRET_KEY)
 })
