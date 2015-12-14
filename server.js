@@ -29,7 +29,8 @@ app.use(express.static(path.join(__dirname, '/public')))
 //setting the root route
 app.get('/', function(req,res){
   console.log('getting index?')
-  res.render('index')
+  // res.render('index')
+  res.sendFile(__dirname + '/public/index.html')
 })
 
 //setting the api routes
