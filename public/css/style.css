@@ -1,7 +1,6 @@
 #map {
-    width: 500px;
-    height: 300px;
-}
+    height: 80vh;
+ }
 
 .login-container
 {
@@ -80,8 +79,6 @@ form.login input[type="submit"]
   cursor: pointer;
   letter-spacing: 1px;
 }
-
-
 
 form.login .loginbtn input[type="submit"]:hover
 {

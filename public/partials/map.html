@@ -1,3 +1,26 @@
-<div id="map">
+<div class="row" >
+	<div class="col-md-8" id="map"></div>
 
+	<div class="col-md-4">
+		<div id="login-container">
+		  <div class="logon">      
+	          <div class="wrap form-group">
+	              <p class="form-title">Add A Destination!</p>
+	              <form class="login" ng-submit="mapCtrl.addDest()">
+
+	                <input type="text" class="form-control" placeholder="Destination Name" ng-model="mapCtrl.newDest.name"/>
+
+	                <input type="text" class="form-control" placeholder="Address" ng-model="mapCtrl.newDest.address"/>
+
+	                <input type="text" class="form-control" placeholder="Address" ng-model="mapCtrl.newDest.comments"/>
+
+	                <button type="submit" class="loginbtn btn btn-success btn-sm">
+	                  Login
+	                </button>
+
+	              </form>
+	          </div>
+	      </div>
+	  </div>
+	<div>
 </div>
