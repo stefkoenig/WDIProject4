@@ -5,7 +5,8 @@ var
 //destination schema
 var destinationSchema = new Schema({
 	name: String,
-	location: {type: [Number]},
+	// location: {type: [Number]},
+	address: String,
 	created_at: Date,
 	comments: [{type: String}],
 	pictures: [{type: String}]
