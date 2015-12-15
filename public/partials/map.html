@@ -6,7 +6,7 @@
 		  <div class="logon">      
 	          <div class="wrap form-group">
 	              <p class="form-title">Add A Destination!</p>
-	              <form class="login" ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
+	              <form class="login" ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments); mapCtrl.getDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
 
 	                <input type="text" class="form-control" placeholder="Destination Name" ng-model="mapCtrl.newDest.name"/>
 

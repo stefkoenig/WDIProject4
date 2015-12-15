@@ -19,6 +19,12 @@
 		dests.addDest = function(data){
 			return $http.post(destsUrl, data)
 		}
+
+		dests.getDest = function(data){
+			return $http.get(destsUrl, data[0]._id)
+			console.log('inside the getDest function in the Factory', data[0]._id)
+		}
+
 		return dests
 	}
 }());
