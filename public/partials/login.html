@@ -1,1 +1,19 @@
-hello
+<div class="row" id="login-container">
+  <div class="logon">
+      <div class="col-md-8">
+          <div class="wrap form-group">
+              <p class="form-title">Login</p>
+              <form class="login" ng-submit="login.doLogin()">
+                <input type="text" class="form-control" placeholder="Username" ng-model="login.loginData.username"/>
+                <input type="password" class="form-control" placeholder="Password" ng-model="login.loginData.password"/>
+                <button type="submit" class="loginbtn btn btn-success btn-sm">
+                  Login
+                </button>
+                <div class="signup">
+                    <a ng-href="#/signup" class="new-user">Not currently a user? Sign up.</a>
+                </div>
+              </form>
+          </div>
+      </div>
+  </div>
+<div>

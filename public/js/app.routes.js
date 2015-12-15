@@ -13,9 +13,18 @@
       })
       .when('/login', {
         templateUrl: 'partials/login.html',
+				controller: 'mainController',
+				controllerAs: 'login'
       })
+      .when('/signup', {
+        templateUrl: 'partials/signup.html',
+      })
+			.when('/users',{
+				controller: 'userController',
+				controllerAs: 'user'
+			})
 	  .otherwise({
 	    redirectTo: '/maps'
 	  });
-	}  	
+	}
 }());
