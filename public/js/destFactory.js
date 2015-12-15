@@ -8,12 +8,16 @@
 
 	//maps factory
 	function dests($http){
-		var destsUrl = '/api/v1/maps' 
+		var destsUrl = '/api/v1/destinations' 
 		var dests = {}
 
 		//this should return all the destinations
 		dests.list = function(){
 			return $http.get(destsUrl)
+		}
+
+		dests.addDest = function(data){
+			return $http.post(destsUrl, data)
 		}
 		return dests
 	}
