@@ -33,14 +33,16 @@
 
 		//add a controller method to add a new desination when user submits form
 		self.addDest = function(name,address,comments){
+
 			var data = {name: name, address: address, comments: comments}
+			console.log('you are in the addDest function', data)
+
 			self.api.addDest(data).then(function success(response){
 				self.dests.push(response.data.dest)
-				console.log(response.data.dest)
+					console.log(response.data.dest)
 				self.newDest = {}
 			})
 		}
-
 
 		// self.geocoderSpot = function(){ 
 		// 	 	var geocoder = new google.maps.Geocoder()

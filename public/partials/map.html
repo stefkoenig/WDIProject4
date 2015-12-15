@@ -6,16 +6,16 @@
 		  <div class="logon">      
 	          <div class="wrap form-group">
 	              <p class="form-title">Add A Destination!</p>
-	              <form class="login" ng-submit="mapCtrl.addDest()">
+	              <form class="login" ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
 
 	                <input type="text" class="form-control" placeholder="Destination Name" ng-model="mapCtrl.newDest.name"/>
 
 	                <input type="text" class="form-control" placeholder="Address" ng-model="mapCtrl.newDest.address"/>
 
-	                <input type="text" class="form-control" placeholder="Address" ng-model="mapCtrl.newDest.comments"/>
+	                <input type="text" class="form-control" placeholder="Comments" ng-model="mapCtrl.newDest.comments"/>
 
 	                <button type="submit" class="loginbtn btn btn-success btn-sm">
-	                  Login
+	                  Submit a Destination
 	                </button>
 
 	              </form>

@@ -22,7 +22,8 @@ var
 		var newDest = new Dest
 	//	var newDest = {}
 		newDest.name = req.body.name
-		newDest.location = req.body.location
+    newDest.address = req.body.address
+		// newDest.location = req.body.location
     newDest.comments = req.body.comments
 		newDest.save(function(err, dest){
 			if(err) throw err
