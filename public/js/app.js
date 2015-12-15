@@ -1,1 +1,1 @@
-angular.module('caliApp', ['app.routes', 'mapCtrl', 'mapFactory'])
+angular.module('caliApp', ['app.routes', 'mapCtrl'])

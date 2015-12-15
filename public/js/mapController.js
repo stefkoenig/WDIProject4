@@ -2,30 +2,18 @@
 	angular.module('mapCtrl', [])
 		.controller('mapController', mapController)
 
-	mapController.$inject = ['maps']
-
-
-	function mapController(maps){
-		// console.log('instantiate mapController')
-
+	function mapController(){
 		var self = this
-		// console.log('this', this)
-
 		self.name = 'Map'
 
-		self.api = maps
-		// console.log('maps', maps)
-		// console.log(map)
-
 		self.googleMap = function(){
-			console.log('hello from googleMap function in controller')
-			  	maps = new google.maps.Map(document.getElementById('map'), {
-				    center: {lat: -34.397, lng: 150.644},
+			  	new google.maps.Map(document.getElementById('map'), {
+				    center: {lat: 34.0218579, lng: -118.5154401}, //34.0218579,-118.5154401
 				    zoom: 8
 		  })
 
-		 } 
-
+		 }
+		 self.googleMap()
 	}
-		 
-}());		
+
+}());

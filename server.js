@@ -33,6 +33,7 @@ app.get('/', function(req,res){
   res.sendFile(__dirname + '/public/index.html')
 })
 
+
 //setting the api routes
 app.use('/api/v1', apiRouter)
 
