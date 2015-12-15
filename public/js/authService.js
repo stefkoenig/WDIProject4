@@ -10,7 +10,7 @@
   function Auth( $http, $q, AuthToken ){
     var authFactory = {}
     authFactory.login = function(username, password){
-        return $http.post('/api/authenticate', {
+        return $http.post('/api/v1/authenticate', {
             username: username,
             password: password
         })
@@ -30,7 +30,7 @@
     }
     authFactory.getUser = function(){
         if ( AuthToken.getToken() )
-            return $http.get('/api/me')
+            return $http.get('/api/v1/me')
         else
             return $q.reject({message: 'User has no token'})
 
