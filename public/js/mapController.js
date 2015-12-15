@@ -14,6 +14,8 @@
 		self.dests = []
 		//new destination object
 		self.newDest = {}
+		//single destination
+		self.dest = null
 
 		
 		//method to build a goolge map from google API
@@ -28,27 +30,34 @@
 		//retrive the list of desinations 
 		self.api.list().success(function(response){
 			self.dests = response
-			console.log('inside the self.api.list()', response)
+			// console.log('inside the self.api.list()', response)
 		})
 
 		//add a controller method to add a new desination when user submits form
 		self.addDest = function(name,address,comments){
 
 			var data = {name: name, address: address, comments: comments}
-			console.log('you are in the addDest function', data)
+			// console.log('you are in the addDest function', data)
 
 			self.api.addDest(data).then(function success(response){
 				self.dests.push(response.data.dest)
-					console.log(response.data.dest)
+					// console.log(response.data.dest)		
 				self.newDest = {}
 			})
 		}
 
-		// self.geocoderSpot = function(){ 
-		// 	 	var geocoder = new google.maps.Geocoder()
-		// 	 		console.log('inside geocoderSpot function')		
-		// 	    geocodeAddress(geocoder, self.map)
-		// }
+		self.getDest = function(data){
+			self.api.getDest(data).success(function(response){
+				self.dest = response[response.length - 1]
+				// console.log('you are inside the getDest function', self.dest)
+			})
+		}
+
+		self.geocoderSpot = function(){ 
+			 	var geocoder = new google.maps.Geocoder()
+			 		console.log('inside geocoderSpot function')		
+			    geocodeAddress(geocoder, self.map)
+		}
 	
 		// self.geocodeAddress = function(geocoder, resultsMap) {
 		// 	  var address = document.getElementById('address').value;
