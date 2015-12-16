@@ -2,7 +2,7 @@
 	angular.module('mapCtrl', [])
 		.controller('mapController', mapController)
 
-	mapController.$inject = ['dests', '$window']	
+	mapController.$inject = ['dests', '$window']
 
 	function mapController(dests, $window){
 		var self = this
@@ -17,16 +17,16 @@
 		//single destination
 		self.dest = null
 
-		
+
 		//method to build a goolge map from google API
 		self.googleMap = function(){
-			var myLatLng = {lat: 37.7833, lng: -122.4167} 
+			var myLatLng = {lat: 37.7833, lng: -122.4167}
 				self.map = new google.maps.Map(document.getElementById('map'), {
 				    center: myLatLng,
 				    zoom: 6
 		 		 })
 
-			//retrive the list of desinations 
+			//retrieve the list of desinations
 			self.api.list().success(function(response){
 				self.dests = response
 				console.log('inside the self.api.list()', response)
@@ -40,12 +40,13 @@
 
 				self.api.addDest(data).then(function success(response){
 					self.dests.push(response.data.dest)
-						console.log(response.data.dest)		
+						console.log(response.data.dest)
 					self.newDest = {}
 				})
 			}
 
 			var geocoder = new google.maps.Geocoder();
+
 			//add a controller method to get the last desination in the array
 
 			function geocodeAddress(geocoder, resultsMap, dest) {
@@ -69,7 +70,7 @@
 		  		})
 			}
 
-			self.geocoderSpot = function(dest) { 
+			self.geocoderSpot = function(dest) {
 			    geocodeAddress(geocoder, self.map, dest)
 			    console.log('you are at the geocoderSpot function', self.dest)
 			}
@@ -77,7 +78,7 @@
 			self.getDest = function(data) {
 				var setDest = new Promise(function(resolve, reject) {
 					self.api.getDest(data).success(function(response) {
-						self.dest = response[response.length - 1]
+						self.dest = response
 						resolve(self.dest)
 					})
 				})
@@ -85,9 +86,9 @@
 				setDest.then(function(dest) {
 					self.geocoderSpot(dest)
 					console.log('the then promise worked!')
-				})		  
+				})
 			}
-		}	
+		}
 		self.googleMap()
 	}
 }());
