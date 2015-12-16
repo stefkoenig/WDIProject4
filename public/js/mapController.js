@@ -16,6 +16,7 @@
 		self.newDest = {}
 		//single destination
 		self.dest = null
+		var marker;
 
 		
 		//method to build a goolge map from google API
@@ -62,12 +63,34 @@
 							var marker = new google.maps.Marker({
 						        map: resultsMap,
 						        position: results[0].geometry.location
-					      	});
+					      	})
+
+					      	var contentString = '<div id="content">'+
+							      '<div id="siteNotice">'+
+							      '</div>'+
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
+							      '<div id="bodyContent">'+
+							      '<p><b>Address:</b> '+ data.address +'</p>'+
+							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
+							      '<p>Yelp: A link: <a href="https://"somewhere">' + '</a>'+
+							      '</p>'+
+							      '</div>'+
+							      '</div>';
+				  			var infowindow = new google.maps.InfoWindow({
+	    						content: contentString
+	  						});	
+
+					      	marker.addListener('click', function() {
+	    						infowindow.open(self.map, marker);
+	  						});	
+						
 
 				    	} else {
 				    	  	alert('Geocode was not successful for the following reason: ' + status);
 				   		}
 			  		})
+
+			  		
 
 				})
 			
@@ -94,5 +117,7 @@
 		}	
 		self.googleMap()
 		self.getDest()
+
+		
 	}
 }());
