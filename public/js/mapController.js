@@ -26,52 +26,31 @@
 				    zoom: 6
 		 		 })
 
-
-
-		//retrive the list of desinations 
-		self.api.list().success(function(response){
-			self.dests = response
-			console.log('inside the self.api.list()', response)
-		})
-
-		//add a controller method to add a new desination when user submits form
-		self.addDest = function(name,address,comments){
-
-			var data = {name: name, address: address, comments: comments}
-			console.log('you are in the addDest function', data)
-
-			self.api.addDest(data).then(function success(response){
-				self.dests.push(response.data.dest)
-					console.log(response.data.dest)		
-				self.newDest = {}
+			//retrive the list of desinations 
+			self.api.list().success(function(response){
+				self.dests = response
+				console.log('inside the self.api.list()', response)
 			})
-		}
 
-		//add a controller method to get the last desination in the array
-		self.getDest = function(data){
-			self.api.getDest(data).success(function(response){
-				self.dest = response[response.length - 1]
-				console.log('you are inside the getDest function', self.dest)
-			})
-		}
+			//add a controller method to add a new desination when user submits form
+			self.addDest = function(name,address,comments){
 
+				var data = {name: name, address: address, comments: comments}
+				console.log('you are in the addDest function', data)
 
-
-
+				self.api.addDest(data).then(function success(response){
+					self.dests.push(response.data.dest)
+						console.log(response.data.dest)		
+					self.newDest = {}
+				})
+			}
 
 			var geocoder = new google.maps.Geocoder();
-			console.log('you are at the geocoder', geocoder)
+			//add a controller method to get the last desination in the array
 
-			self.geocoderSpot = function(){ 
-			 	var geocoder = new google.maps.Geocoder()
-			 		console.log('inside geocoderSpot function')		
-			    geocodeAddress(geocoder, self.map)
-			}
-		
-
-			function geocodeAddress(geocoder, resultsMap) {
-				 var address = '3609 Buck Ridge Ave, Carlsbad, CA'
-				 console.log(address)
+			function geocodeAddress(geocoder, resultsMap, dest) {
+				 var address = dest.address
+				 console.log(address, "what are you:", self.dest)
 
 				 geocoder.geocode({'address': address}, function(results, status) {
 
@@ -88,16 +67,27 @@
 			    	  	alert('Geocode was not successful for the following reason: ' + status);
 			   		 }
 		  		})
-			}		  
+			}
 
+			self.geocoderSpot = function(dest) { 
+			    geocodeAddress(geocoder, self.map, dest)
+			    console.log('you are at the geocoderSpot function', self.dest)
+			}
 
-		
-	}	
+			self.getDest = function(data) {
+				var setDest = new Promise(function(resolve, reject) {
+					self.api.getDest(data).success(function(response) {
+						self.dest = response[response.length - 1]
+						resolve(self.dest)
+					})
+				})
 
-
-		
-
+				setDest.then(function(dest) {
+					self.geocoderSpot(dest)
+					console.log('the then promise worked!')
+				})		  
+			}
+		}	
 		self.googleMap()
-		self.geocoderSpot()
 	}
 }());
