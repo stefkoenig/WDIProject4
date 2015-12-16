@@ -2,15 +2,24 @@
     height: 80vh;
  }
 
-.login-container
-{
+/* ----- Navbar ------ */
+.navbar{
+    background-color: #66c2ff;
+}
+
+.nav > li > a {
+    color: #000000;
+}
+
+/* ----------------------- */
+
+.login-container{
     height: 600px;
     padding: 0;
     margin: 20px;
 }
 
-.logon
-{
+.logon{
     background: url('../partials/images/California-Highway-1.jpg') fixed;
     background-size: cover;
     border-radius: 25px;
@@ -20,8 +29,7 @@
 }
 
 
-p.form-title
-{
+p.form-title{
     font-family: 'Open Sans' , sans-serif;
     font-size: 25px;
     font-weight: 600;
@@ -32,14 +40,12 @@ p.form-title
     letter-spacing: 4px;
 }
 
-form
-{
+form{
     width: 300px;
     margin: 0 auto;
 }
 
-form.login input[type="text"], form.login input[type="password"]
-{
+form.login input[type="text"], form.login input[type="password"]{
     width: 100%;
     margin: 10px;
     padding: 5px 10px;
@@ -56,8 +62,7 @@ form.login input[type="text"], form.login input[type="password"]
     outline: 0;
 }
 
-form.login input[type="submit"]
-{
+form.login input[type="submit"]{
     width: 100%;
     font-size: 14px;
     text-transform: uppercase;
@@ -68,8 +73,7 @@ form.login input[type="submit"]
     letter-spacing: 1px;
 }
 
-.loginbtn
-{
+.loginbtn{
   width: 100%;
   font-size: 14px;
   text-transform: uppercase;
@@ -80,35 +84,30 @@ form.login input[type="submit"]
   letter-spacing: 1px;
 }
 
-form.login .loginbtn input[type="submit"]:hover
-{
+form.login .loginbtn input[type="submit"]:hover{
     transition: background-color 0.5s ease;
 }
 
-form.login .sign-up-content
-{
+form.login .sign-up-content{
     min-height: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-form.login label, form.login a
-{
+form.login label, form.login a{
     font-size: 12px;
     font-weight: 400;
     color: #FFFFFF;
 }
 
-form.login a
-{
+form.login a{
     transition: color 0.5s ease;
 }
 
-form.login a:hover
-{
+form.login a:hover{
     color: #2ecc71;
 }
-.signup
-{
+.signup{
   margin-top: 13px;
 }
+
