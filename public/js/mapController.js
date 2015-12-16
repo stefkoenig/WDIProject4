@@ -49,24 +49,28 @@
 			//add a controller method to get the last desination in the array
 
 			function geocodeAddress(geocoder, resultsMap, dest) {
-				 var address = dest.address
-				 console.log(address, "what are you:", self.dest)
+				dest.forEach(function(data){
+					var address = data.address
+					console.log(address, "what are you:")
 
-				 geocoder.geocode({'address': address}, function(results, status) {
+					geocoder.geocode({'address': address}, function(results, status) {
 
-				    if (status === google.maps.GeocoderStatus.OK) {
-				      resultsMap.setCenter(results[0].geometry.location);
+					    if (status === google.maps.GeocoderStatus.OK) {
+					      resultsMap.setCenter(results[0].geometry.location);
 
 
-						    var marker = new google.maps.Marker({
+							var marker = new google.maps.Marker({
 						        map: resultsMap,
 						        position: results[0].geometry.location
-				      		});
+					      	});
 
-			    	} else {
-			    	  	alert('Geocode was not successful for the following reason: ' + status);
-			   		 }
-		  		})
+				    	} else {
+				    	  	alert('Geocode was not successful for the following reason: ' + status);
+				   		}
+			  		})
+
+				})
+			
 			}
 
 			self.geocoderSpot = function(dest) { 
@@ -77,7 +81,7 @@
 			self.getDest = function(data) {
 				var setDest = new Promise(function(resolve, reject) {
 					self.api.getDest(data).success(function(response) {
-						self.dest = response[response.length - 1]
+						self.dest = response
 						resolve(self.dest)
 					})
 				})
@@ -89,5 +93,6 @@
 			}
 		}	
 		self.googleMap()
+		self.getDest()
 	}
 }());
