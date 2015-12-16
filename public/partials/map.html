@@ -1,9 +1,9 @@
 <div class="row" >
 	<div class="col-md-8" id="map"></div>
 
-	<div class="col-md-4">
+	<div class="col-md-4" ng-hide="!main.loggedIn">
 		<div id="login-container">
-		  <div class="logon">      
+		  <div class="logon">
 	          <div class="wrap form-group">
 	              <p class="form-title">Add A Destination!</p>
 	              <form class="login" ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments); mapCtrl.getDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
