@@ -8,8 +8,8 @@ var
   ejs        = require('ejs'),
   bodyParser = require('body-parser'),
   apiRouter  = require('./routes/api.js'),
-  //database   = 'mongodb://localhost/catravelapp',
-  database = 'mongodb://test:test@ds027295.mongolab.com:27295/catravelapp'
+  database   = 'mongodb://localhost/catravelapp',
+  //database = 'mongodb://test:test@ds027295.mongolab.com:27295/catravelapp'
 
   port       = process.env.PORT || 3000,
   // flash      = require('connect-flash'),
