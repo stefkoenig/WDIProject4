@@ -153,6 +153,49 @@ apiRouter.get('/destroy-all', function(req,res){
   	});
   });
 
+  // on routes that end in /users
+  // ----------------------------------------------------
+  apiRouter.route('/users')
+
+    // create a user (accessed at POST http://localhost:8080/users)
+    .post(function(req, res) {
+
+      var user = new User()		// create a new instance of the User model
+      user.email = req.body.email  // set the users name (comes from the request)
+      user.username = req.body.username  // set the users username (comes from the request)
+      user.password = req.body.password  // set the users password (comes from the request)
+      user.age = req.body.age
+      user.bio = req.body.bio
+      user.resident = req.body.resident
+      user.timeInCa = req.body.timeInCa
+      user.location = req.body.location
+
+      user.save(function(err) {
+        if (err) {
+          // duplicate entry
+          if (err.code == 11000)
+            return res.json({ success: false, message: 'A user with that username already exists. '});
+          else
+            return res.send(err);
+        }
+
+        // return a message
+        res.json({ message: 'User created!' });
+      });
+
+    })
+
+    // get all the users (accessed at GET http://localhost:8080/api/users)
+    .get(function(req, res) {
+
+      User.find({}, function(err, users) {
+        if (err) res.send(err);
+
+        // return the users
+        res.json(users);
+      });
+    });
+
   // route middleware to verify a token
   apiRouter.use(function(req, res, next) {
   	// do logging
@@ -198,48 +241,7 @@ apiRouter.get('/destroy-all', function(req,res){
   	res.json({ message: 'hooray! welcome to our api!' });
   });
 
-  // on routes that end in /users
-  // ----------------------------------------------------
-  apiRouter.route('/users')
 
-  	// create a user (accessed at POST http://localhost:8080/users)
-  	.post(function(req, res) {
-
-  		var user = new User()		// create a new instance of the User model
-  		user.email = req.body.email  // set the users name (comes from the request)
-  		user.username = req.body.username  // set the users username (comes from the request)
-  		user.password = req.body.password  // set the users password (comes from the request)
-      user.age = req.body.age
-      user.bio = req.body.bio
-      user.resident = req.body.resident
-      user.timeInCa = req.body.timeInCa
-      user.location = req.body.location
-
-  		user.save(function(err) {
-  			if (err) {
-  				// duplicate entry
-  				if (err.code == 11000)
-  					return res.json({ success: false, message: 'A user with that username already exists. '});
-  				else
-  					return res.send(err);
-  			}
-
-  			// return a message
-  			res.json({ message: 'User created!' });
-  		});
-
-  	})
-
-  	// get all the users (accessed at GET http://localhost:8080/api/users)
-  	.get(function(req, res) {
-
-  		User.find({}, function(err, users) {
-  			if (err) res.send(err);
-
-  			// return the users
-  			res.json(users);
-  		});
-  	});
 
   // on routes that end in /users/:user_id
   // ----------------------------------------------------

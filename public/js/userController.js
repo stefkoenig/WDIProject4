@@ -1,4 +1,4 @@
-angular.module('userCtrl', ['userService'])
+angular.module('userCtrl', ['userService','authService'])
 
 .controller('userController', function(User) {
 
@@ -40,7 +40,7 @@ angular.module('userCtrl', ['userService'])
 })
 
 // controller applied to user creation page
-.controller('userCreateController', function(User) {
+.controller('userCreateController', function(User, Auth, $location) {
 
 	var vm = this;
 
@@ -56,9 +56,29 @@ angular.module('userCtrl', ['userService'])
 		// use the create function in the userService
 		User.create(vm.userData)
 			.success(function(data) {
-				vm.processing = false;
+				//vm.processing = false;
+				console.log(vm.userData)
+
+				//once Auth factory is available in this controller, you can log the user in from this point using Auth.login()
+				//Auth.login(vm.userData.username,vm.userData.password)
+				Auth.login(vm.userData.username, vm.userData.password)
+					.success(function(data){
+						vm.processing = false
+
+						if ( data.success ){
+							$location.path('/maps')
+							console.log(mainCtrl.loginData.username, 'is logged in')
+						}
+						else {
+							//mainCtrl.error = data.message
+							console.log('failure')
+						}
+					})
+
 				vm.userData = {};
 				vm.message = data.message;
+
+
 			});
 
 	};
