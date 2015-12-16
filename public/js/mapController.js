@@ -68,9 +68,10 @@
 					      	})
 
 					      	var contentString = '<div id="content">'+
-							      '<div id="siteNotice">'+
-							      '</div>'+
-							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
+							      '<div id="siteNotice">'+ 
+							      '</div>'+ 
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+ 
+							      '<i class="glyphicon glyphicon-star"></i>' +
 							      '<div id="bodyContent">'+
 							      '<p><b>Address:</b> '+ data.address +'</p>'+
 							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
