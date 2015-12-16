@@ -11,6 +11,7 @@ var
   // database   = 'mongodb://localhost/catravelapp',
   database = 'mongodb://test:test@ds027295.mongolab.com:27295/catravelapp'
 
+
   port       = process.env.PORT || 3000,
   // flash      = require('connect-flash'),
   http       = require('http')
