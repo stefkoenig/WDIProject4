@@ -65,7 +65,17 @@
 						        position: results[0].geometry.location
 					      	})
 
-					      	var contentString = data.name
+					      	var contentString = '<div id="content">'+
+							      '<div id="siteNotice">'+
+							      '</div>'+
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
+							      '<div id="bodyContent">'+
+							      '<p><b>Address:</b> '+ data.address +'</p>'+
+							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
+							      '<p>Yelp: A link: <a href="https://"somewhere">' + '</a>'+
+							      '</p>'+
+							      '</div>'+
+							      '</div>';
 				  			var infowindow = new google.maps.InfoWindow({
 	    						content: contentString
 	  						});	
