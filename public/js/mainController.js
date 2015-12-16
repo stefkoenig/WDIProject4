@@ -31,18 +31,20 @@ angular.module('mainCtrl', [])
 
 				if ( data.success ){
 					$location.path('/maps')
+					console.log(mainCtrl.loginData.username, 'is logged in')
 				}
 				else {
 					mainCtrl.error = data.message
+					console.log('failure')
 				}
 			})
 	}
 
 	// function to handle logging out
 	mainCtrl.doLogout = function(){
+		console.log('logging you out')
 		Auth.logout()
 		mainCtrl.user = ''
-
 		$location.path('/login')
 	}
 

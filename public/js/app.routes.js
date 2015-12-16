@@ -17,7 +17,9 @@
 			controllerAs: 'login'
 		})
 		.when('/signup', {
-			templateUrl: 'partials/signup.html'
+			templateUrl: 'partials/signup.html',
+			controller: 'userCreateController',
+			controllerAs: 'user'
 		})
 		.when('/users',{
 			controller: 'userController',

@@ -2,7 +2,7 @@
 	angular.module('mapCtrl', [])
 		.controller('mapController', mapController)
 
-	mapController.$inject = ['dests', '$window']	
+	mapController.$inject = ['dests', '$window']
 
 	function mapController(dests, $window){
 		var self = this
@@ -18,16 +18,16 @@
 		self.dest = null
 		var marker;
 
-		
+
 		//method to build a goolge map from google API
 		self.googleMap = function(){
-			var myLatLng = {lat: 37.7833, lng: -122.4167} 
+			var myLatLng = {lat: 37.7833, lng: -122.4167}
 				self.map = new google.maps.Map(document.getElementById('map'), {
 				    center: myLatLng,
 				    zoom: 6
 		 		 })
 
-			//retrive the list of desinations 
+			//retrieve the list of desinations
 			self.api.list().success(function(response){
 				self.dests = response
 				console.log('inside the self.api.list()', response)
@@ -41,12 +41,13 @@
 
 				self.api.addDest(data).then(function success(response){
 					self.dests.push(response.data.dest)
-						console.log(response.data.dest)		
+						console.log(response.data.dest)
 					self.newDest = {}
 				})
 			}
 
 			var geocoder = new google.maps.Geocoder();
+
 			//add a controller method to get the last desination in the array
 
 			function geocodeAddress(geocoder, resultsMap, dest) {
@@ -60,8 +61,9 @@
 					      resultsMap.setCenter(results[0].geometry.location);
 
 
-							var marker = new google.maps.Marker({
+							 var marker = new google.maps.Marker({
 						        map: resultsMap,
+
 						        position: results[0].geometry.location
 					      	})
 
@@ -78,25 +80,25 @@
 							      '</div>';
 				  			var infowindow = new google.maps.InfoWindow({
 	    						content: contentString
-	  						});	
+	  						});
 
 					      	marker.addListener('click', function() {
 	    						infowindow.open(self.map, marker);
-	  						});	
-						
+	  						});
+
 
 				    	} else {
 				    	  	alert('Geocode was not successful for the following reason: ' + status);
 				   		}
 			  		})
 
-			  		
+
 
 				})
-			
+
 			}
 
-			self.geocoderSpot = function(dest) { 
+			self.geocoderSpot = function(dest) {
 			    geocodeAddress(geocoder, self.map, dest)
 			    console.log('you are at the geocoderSpot function', self.dest)
 			}
@@ -112,12 +114,11 @@
 				setDest.then(function(dest) {
 					self.geocoderSpot(dest)
 					console.log('the then promise worked!')
-				})		  
+				})
 			}
-		}	
+		}
 		self.googleMap()
 		self.getDest()
-
-		
 	}
+
 }());
