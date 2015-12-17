@@ -1,6 +1,6 @@
-angular.module('mainCtrl', [])
+angular.module('mainCtrl', ['userService'])
 
-.controller('mainController', function($rootScope, $location, Auth) {
+.controller('mainController', function($rootScope, $location, Auth, User) {
 
 	var mainCtrl = this;
 
@@ -16,8 +16,10 @@ angular.module('mainCtrl', [])
 		Auth.getUser()
 			.then(function(data){
 				mainCtrl.user = data.data
+			
+				})
+
 			})
-	})
 
 	// function to handle login form
 	mainCtrl.doLogin = function(){

@@ -17,27 +17,7 @@ angular.module('userCtrl', ['userService','authService'])
 			// bind the users that come back to vm.users
 			vm.users = data;
 		});
-
-	// function to delete a user
-	vm.deleteUser = function(id) {
-		vm.processing = true;
-
-		User.delete(id)
-			.success(function(data) {
-
-				// get all users to update the table
-				// you can also set up your api
-				// to return the list of users with the delete call
-				User.all()
-					.success(function(data) {
-						vm.processing = false;
-						vm.users = data;
-					});
-
-			});
-	};
-
-})
+	})
 
 // controller applied to user creation page
 .controller('userCreateController', function(User, Auth, $location) {
@@ -96,9 +76,10 @@ angular.module('userCtrl', ['userService','authService'])
 
 	// get the user data for the user you want to edit
 	// $routeParams is the way we grab data from the URL
-	User.get($routeParams.user_id)
+	User.get($routeParams.username)
 		.success(function(data) {
 			vm.userData = data;
+			console.log(data);
 		});
 
 	// function to save the user
@@ -107,15 +88,34 @@ angular.module('userCtrl', ['userService','authService'])
 		vm.message = '';
 
 		// call the userService function to update
-		User.update($routeParams.user_id, vm.userData)
+		User.update($routeParams.username, vm.userData)
 			.success(function(data) {
 				vm.processing = false;
 
 				// clear the form
-				vm.userData = {};
+				vm.userData = {}
 
 				// bind the message from our API to vm.message
 				vm.message = data.message;
+			})
+		}
+
+	// function to delete a user
+	vm.deleteUser = function(id) {
+		vm.processing = true;
+
+		User.delete(id)
+			.success(function(data) {
+
+				// get all users to update the table
+				// you can also set up your api
+				// to return the list of users with the delete call
+				User.all()
+					.success(function(data) {
+						vm.processing = false;
+						vm.users = data;
+					});
+
 			});
 	};
 

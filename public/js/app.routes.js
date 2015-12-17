@@ -25,6 +25,11 @@
 			controller: 'userController',
 			controllerAs: 'user'
 		})
+		.when('/users/:username',{
+			templateUrl: 'partials/profile.html',
+			controller: 'userEditController',
+			controllerAs: 'edit'
+		})
 		.otherwise({
 			redirectTo: '/maps'
 		});
