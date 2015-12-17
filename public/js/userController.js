@@ -82,6 +82,7 @@ angular.module('userCtrl', ['userService','authService'])
 			console.log(data);
 		});
 
+
 	// function to save the user
 	vm.saveUser = function() {
 		vm.processing = true;

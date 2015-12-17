@@ -23,6 +23,9 @@
 		dests.getDest = function(data){
 			return $http.get(destsUrl, data)
 		}
+		dests.addFavorite = function(data){
+			return $http.get(destsUrl, data)
+		}
 
 		return dests
 	}

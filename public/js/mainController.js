@@ -13,6 +13,7 @@ angular.module('mainCtrl', ['userService'])
 		// get user information on page load
 		Auth.getUser()
 			.then(function(data){
+				console.log('LOOK:', data)
 				mainCtrl.user = data.data
 			
 				})

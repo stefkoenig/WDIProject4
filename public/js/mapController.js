@@ -68,16 +68,18 @@
 					      	})
 
 					      	var contentString = '<div id="content">'+
-							      '<div id="siteNotice">'+
-							      '</div>'+
-							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
+							      '<div id="siteNotice">'+ 
+							      '</div>'+ 
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+ 
+							      '<p class="glyphicon glyphicon-star"></p>' +
 							      '<div id="bodyContent">'+
 							      '<p><b>Address:</b> '+ data.address +'</p>'+
 							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
 							      '<p>Yelp: A link: <a href="https://"somewhere">' + '</a>'+
 							      '</p>'+
 							      '</div>'+
-							      '</div>';
+							      '</div>'; 
+							      
 				  			var infowindow = new google.maps.InfoWindow({
 	    						content: contentString
 	  						});
@@ -114,6 +116,12 @@
 				setDest.then(function(dest) {
 					self.geocoderSpot(dest)
 					console.log('the then promise worked!')
+				})
+			}
+
+			self.addFavorite = function(dest){
+				self.api.addFavorite(dest).success(function(response){
+				console.log('you are in the addFavorite: ', response)
 				})
 			}
 		}
