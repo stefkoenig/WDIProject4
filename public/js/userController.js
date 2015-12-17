@@ -66,7 +66,7 @@ angular.module('userCtrl', ['userService','authService'])
 })
 
 // controller applied to user edit page
-.controller('userEditController', function($routeParams, User) {
+.controller('userEditController', function(User, $routeParams, Auth, $location) {
 
 	var vm = this;
 
@@ -101,22 +101,25 @@ angular.module('userCtrl', ['userService','authService'])
 		}
 
 	// function to delete a user
-	vm.deleteUser = function(id) {
+	vm.deleteUser = function(username) {
 		vm.processing = true;
-
-		User.delete(id)
+		console.log('in deleteUser method')
+		User.delete(username)
 			.success(function(data) {
-
+				Auth.logout()
+				console.log(data, 'deleted')
+					vm.user = ''
+					$location.path('/login')
+					vm.processing = false
+				})
+			}
 				// get all users to update the table
 				// you can also set up your api
 				// to return the list of users with the delete call
-				User.all()
-					.success(function(data) {
-						vm.processing = false;
-						vm.users = data;
-					});
+				// User.all()
+				// 	.success(function(data) {
+				// 		vm.processing = false;
+				// 		vm.users = data;
+				// 	});
 
 			});
-	};
-
-});
