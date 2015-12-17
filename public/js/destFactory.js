@@ -23,8 +23,8 @@
 		dests.getDest = function(data){
 			return $http.get(destsUrl, data)
 		}
-		dests.addFavorite = function(destId){
-			return $http.get('/api/v1/addDest/' + destId)
+		dests.addFavorite = function(destId, username){
+			return $http.get('/api/v1/addDest/' +  destId + '/u/' + username)
 		}
 
 		return dests

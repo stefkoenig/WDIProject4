@@ -6,7 +6,7 @@
 			<ul class="list-group">
 				<li ng-repeat="dest in mapCtrl.dests | orderBy:'-created_at' " class="list-group-item">
 			  		<h3 class="list-group-item-heading">{{ dest.name }} 
-			  		<i type="button" class="glyphicon glyphicon-star" ng-click="mapCtrl.addFavorite(dest._id)"></i>
+			  		<i type="button" class="glyphicon glyphicon-star" ng-click="mapCtrl.addFavorite(dest._id, main.user.username)"></i>
 			  		</h3>
 			  		<p class="list-group-item-text">{{ dest.address }}</p>
 			  	</li>
