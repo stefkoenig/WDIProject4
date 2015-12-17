@@ -97,15 +97,10 @@ apiRouter.get('/destroy-all', function(req,res){
 
 
   //will hit route in angular
-  apiRouter.get('/addDest/:destId', function(req,res){
-      console.log('in the des fav .get apiRouter')
-
-  	User.findOne({username: 'Josie'}, function(err, user){
-        console.log('username')
-
+  apiRouter.get('/addDest/:destId/u/:username', function(req,res){
+    console.log(req)
+  	User.findOne({username: req.params.username}, function(err, user){
   		user.destinations.push(req.params.destId)
-        console.log('pushing: ', req.params.destId)
-
   		user.save(function(err){
   			if(err) throw err
   			res.json(user)
