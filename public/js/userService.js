@@ -6,8 +6,8 @@ angular.module('userService', [])
 	var userFactory = {};
 
 	// get a single user
-	userFactory.get = function(id) {
-		return $http.get('/api/v1/users/' + id);
+	userFactory.get = function(username) {
+		return $http.get('/api/v1/users/' + username);
 	};
 
 	// get all users
@@ -21,13 +21,13 @@ angular.module('userService', [])
 	};
 
 	// update a user
-	userFactory.update = function(id, userData) {
-		return $http.put('/api/v1/users/' + id, userData);
+	userFactory.update = function(username, userData) {
+		return $http.put('/api/v1/users/' + username, userData);
 	};
 
 	// delete a user
-	userFactory.delete = function(id) {
-		return $http.delete('/api/v1/users/' + id);
+	userFactory.delete = function(username) {
+		return $http.delete('/api/v1/users/' + username);
 	};
 
 	// return our entire userFactory object

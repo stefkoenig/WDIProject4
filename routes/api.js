@@ -243,13 +243,21 @@ apiRouter.get('/destroy-all', function(req,res){
 
 
 
-  // on routes that end in /users/:user_id
+  // on routes that end in /users/:username
   // ----------------------------------------------------
-  apiRouter.route('/users/:user_id')
+  apiRouter.route('/users/:username')
 
   	// get the user with that id
-  	.get(function(req, res) {
-  		User.findById(req.params.user_id, function(err, user) {
+  	// .get(function(req, res) {
+  	// 	User.findById(req.params.user_id, function(err, user) {
+  	// 		if (err) res.send(err);
+    //
+  	// 		// return that user
+  	// 		res.json(user);
+  	// 	});
+  	// })
+    .get(function(req, res) {
+  		User.findOne({username: req.params.username}, function(err, user) {
   			if (err) res.send(err);
 
   			// return that user
@@ -257,9 +265,9 @@ apiRouter.get('/destroy-all', function(req,res){
   		});
   	})
 
-  	// update the user with this id
+  	// update the user with this username
   	.put(function(req, res) {
-  		User.findById(req.params.user_id, function(err, user) {
+  		User.findOne({username: req.params.username}, function(err, user) {
 
   			if (err) res.send(err);
 
@@ -284,10 +292,10 @@ apiRouter.get('/destroy-all', function(req,res){
   		});
   	})
 
-  	// delete the user with this id
+  	// delete the user with this username
   	.delete(function(req, res) {
   		User.remove({
-  			_id: req.params.user_id
+  			username: req.params.username
   		}, function(err, user) {
   			if (err) res.send(err);
 
