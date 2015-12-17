@@ -16,12 +16,12 @@
                   <input type="radio" name="resident" value="false" ng-model="user.userData.resident"/>No
                   <label for="years-in-ca" ng-show="user.userData.resident == 'true'">How long have you lived in CA?</label>
                   <select name="timeInCa" ng-show="user.userData.resident == 'true'" ng-model="user.userData.timeInCa">
-                    <option value="0">Less than 1 year</option>
-                    <option value="2"> 1 - 3 years </option>
-                    <option value="4"> 3 - 5 years </option>
-                    <option value="6"> 5 - 7 years </option>
-                    <option value="8"> 7 - 9 years </option>
-                    <option value="10"> 10+ years </option>
+                    <option value="Less than 1 year">Less than 1 year</option>
+                    <option value="1 - 3 years"> 1 - 3 years </option>
+                    <option value="3 - 5 years"> 3 - 5 years </option>
+                    <option value="5 - 7 years"> 5 - 7 years </option>
+                    <option value="7 - 9 years"> 7 - 9 years </option>
+                    <option value="10+ years"> 10+ years </option>
                   </select>
                   <input ng-show="user.userData.resident == 'true'" type="text" class="form-control" placeholder="Current City" ng-model="user.userData.location"/>
                   <button type="submit" class="loginbtn btn btn-success btn-sm">

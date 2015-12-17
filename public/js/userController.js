@@ -74,6 +74,9 @@ angular.module('userCtrl', ['userService','authService'])
 	// differentiates between create or edit pages
 	vm.type = 'edit';
 
+	// default boolean value, which we can toggle true/false for showing/hiding car edit form
+	vm.editing = false
+
 	// get the user data for the user you want to edit
 	// $routeParams is the way we grab data from the URL
 	User.get($routeParams.username)
