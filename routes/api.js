@@ -93,16 +93,28 @@ apiRouter.get('/destroy-all', function(req,res){
   	})
 
   })
-  // //will hit route in angular
-  // apiRouter.get('/addCar/:carId', function(req,res){
-  // 	User.findOne({_id: '5667942d2bb3183b3aad04f2'}, function(err, user){
-  // 		user.cars.push(req.params.carId)
-  // 		user.save(function(err){
-  // 			if(err) throw err
-  // 			res.json(user)
-  // 		})
-  // 	})
-  // })
+
+
+
+  //will hit route in angular
+  apiRouter.get('/addDest/:destId', function(req,res){
+      console.log('in the des fav .get apiRouter')
+
+  	User.findOne({username: 'Josie'}, function(err, user){
+        console.log('username')
+
+  		user.destinations.push(req.params.destId)
+        console.log('pushing: ', req.params.destId)
+
+  		user.save(function(err){
+  			if(err) throw err
+  			res.json(user)
+  		})
+  	})
+  })
+
+
+
 
   // route to authenticate a user (POST http://localhost:8080/api/authenticate)
   apiRouter.post('/authenticate', function(req, res) {
