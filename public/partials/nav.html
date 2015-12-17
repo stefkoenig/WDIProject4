@@ -23,6 +23,7 @@
           <li ng-show="!main.loggedIn"><a href="#/signup">Signup</a></li>
           <li ng-hide="!main.loggedIn" ng-click="main.doLogout()"><a href="#">Logout</a></li>
           <li ng-hide="!main.loggedIn"><a href="#/users"> {{ main.user.username}}'s Profile</a></li>
+          {{main.user}}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
