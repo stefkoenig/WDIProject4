@@ -12,7 +12,8 @@ var userSchema   = new Schema({
 	bio: String,
 	resident: Boolean,
 	timeInCa: String,
-	location: String
+	location: String,
+	destinations: [{type: String}]
 });
 
 //save and hash the password

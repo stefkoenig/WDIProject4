@@ -119,8 +119,8 @@
 				})
 			}
 
-			self.addFavorite = function(dest){
-				self.api.addFavorite(dest).success(function(response){
+			self.addFavorite = function(destId){
+				self.api.addFavorite(destId).success(function(response){
 				console.log('you are in the addFavorite: ', response)
 				})
 			}
