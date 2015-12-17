@@ -7,11 +7,9 @@ angular.module('mainCtrl', ['userService'])
 	// get info if a person is logged in
 	mainCtrl.loggedIn = Auth.isLoggedIn()
 	console.log("User is logged in:", mainCtrl.loggedIn)
-
 	// check to see if a user is logged in on every request
 	$rootScope.$on('$routeChangeStart',function(){
 		mainCtrl.loggedIn = Auth.isLoggedIn()
-
 		// get user information on page load
 		Auth.getUser()
 			.then(function(data){
