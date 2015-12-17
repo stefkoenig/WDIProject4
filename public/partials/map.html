@@ -2,40 +2,35 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md-3" id="destinations">
-		<h4 id='destTitle'>List of the Desinations</h4>
-			<div class="list-group">
-				<a ng-repeat="dest in mapCtrl.dests" class="list-group-item">
+		<h4 id='destTitle'>Destinations:</h4>
+			<ul class="list-group">
+				<li ng-repeat="dest in mapCtrl.dests" class="list-group-item">
 			  		<h3 class="list-group-item-heading">{{ dest.name }} <i class="glyphicon glyphicon-star" ng-click="mapCtrl.addFavorite(mapCtrl.dests._id)"></i></h3>
 			  		<p class="list-group-item-text">{{ dest.address }}</p>
-			  	</a>
-			</div>
+			  	</li>
+			</ul>
 		</div>	
 
 
 
 		<div class="col-md-6" id="map"></div>
 
-		<div class="col-md-3" ng-hide="!main.loggedIn">
-			<div id="login-container">
-			  <div class="logon">
-		          <div class="wrap form-group">
-		              <p class="form-title">Add A Destination!</p>
-		              <form class="login" ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments); mapCtrl.getDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
+			<div class="col-md-3" ng-hide="!main.loggedIn">
+			<div class="form-group">
+				<h4 id='destTitle'>Add A Destination!</h4>
+					<form ng-submit="mapCtrl.addDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments); mapCtrl.getDest(mapCtrl.newDest.name, mapCtrl.newDest.address, mapCtrl.newDest.comments)">
 
-		                <input type="text" class="form-control" placeholder="Destination Name" ng-model="mapCtrl.newDest.name"/>
+						<input type="text" class="form-control destForm" placeholder="Destination's Name" ng-model="mapCtrl.newDest.name"/>
 
-		                <input type="text" class="form-control" placeholder="Address" ng-model="mapCtrl.newDest.address"/>
+						<input type="text" class="form-control destForm" placeholder="Destination's Address" ng-model="mapCtrl.newDest.address"/>
 
-		                <input type="text" class="form-control" placeholder="Comments" ng-model="mapCtrl.newDest.comments"/>
+						<input type="text" class="form-control destForm" placeholder="Leave A Comment" ng-model="mapCtrl.newDest.comments"/>
 
-		                <button type="submit" class="loginbtn btn btn-success btn-sm">
-		                  Submit a Destination
-		                </button>
-
-		              </form>
-		          </div>
-		      </div>
-		  </div>
-		</div>
+						<button class="btn" type="submit">
+							Submit a Destination
+						</button>
+					</form>
+			</div>
+			</div>
 	</div>  	
 </div>
