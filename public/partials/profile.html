@@ -1,5 +1,9 @@
+<div class="navPad"></div>
+<div class="container">
 Hello {{main.user.username}}!
 
-<div>
-  <button class="btn btn-danger btn-block" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
+  <div>
+    <a ng-href="#/signup"><button class="btn btn-block">Update User Information</button></a>
+    <button class="btn btn-danger btn-block" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
+  </div>
 </div>

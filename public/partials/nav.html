@@ -21,12 +21,11 @@
     <!-- </div> -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li ng-show="!main.loggedIn"><a href="#/login">Login</a></li>
-        <li ng-show="!main.loggedIn"><a href="#/signup">Signup</a></li>
+        <li ng-show="!main.loggedIn"><a ng-href="#/login">Login</a></li>
+        <li ng-show="!main.loggedIn"><a ng-href="#/signup">Signup</a></li>
         <li ng-hide="!main.loggedIn" ng-click="main.doLogout()"><a href="#">Logout</a></li>
-        <li ng-hide="!main.loggedIn"><a href="#/users/{{main.user.username}}"> {{ main.user.username}}'s Profile</a></li>
+        <li ng-hide="!main.loggedIn"><a ng-href="#/users/{{main.user.username}}"> {{ main.user.username}}'s Profile</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
