@@ -52,6 +52,7 @@
 
 			function geocodeAddress(geocoder, resultsMap, dest) {
 				dest.forEach(function(data){
+					console.log('Here is the data you search: ',data)
 					var address = data.address
 					console.log(address, "what are you:")
 
@@ -71,11 +72,9 @@
 							      '<div id="siteNotice">'+ 
 							      '</div>'+ 
 							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+ 
-							      '<p class="glyphicon glyphicon-star"></p>' +
 							      '<div id="bodyContent">'+
 							      '<p><b>Address:</b> '+ data.address +'</p>'+
-							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
-							      '<p>Yelp: A link: <a href="https://"somewhere">' + '</a>'+
+							      '<p><b>Description:</b> '+ data.comments + '</p>'+ '<br>' + 
 							      '</p>'+
 							      '</div>'+
 							      '</div>'; 
