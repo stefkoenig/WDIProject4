@@ -162,7 +162,7 @@ form.login a:hover{
 
 /* -------- Comment Box ---------- */
 .glyphicon-star{
-  color: #ffcc00;
+    color: #ffcc00;
 }
 
 /* ----------- HomePage ----------- */
@@ -190,6 +190,7 @@ form.login a:hover{
     top: 20px;
     height: 50px;
     box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    border-radius: 4px;
 }
 
 .form-control{
@@ -240,4 +241,44 @@ select{
 
 .already-user{
 padding: 5px;
+}
+
+/* ---------- Edit Form ----------*/
+.userForm {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    top: 20px;
+    height: 50px;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    border-radius: 4px;
+
+
+}
+
+#editTitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.updateBtn{
+    background-color: #f2f2f2;
+    border: solid 1px black;
+    height: 50px;
+    width: 150px;
+    border-radius: 4px;
+}
+
+
+/* ---------- Profile Page -------- */
+
+
+.profBtn{
+    background-color: #f2f2f2;
+    border: solid 1px black;
+    height: 50px;
+    width: 150px;
+    border-radius: 4px;
+    margin: 8px;
 }
