@@ -158,18 +158,25 @@ form.login a:hover{
 }
 
 /* -------- Comment Box ---------- */
-.glyphicon-star:hover{
+.glyphicon-star{
   color: #ffcc00;
 }
 
 /* ----------- HomePage ----------- */
-#destTitle{
+.destTitle{
     font-weight: bold;
+    font-size: 23px;
  }
 
 .list-group{
     max-height: 450px;
     overflow-y:scroll;
+}
+
+#favButton{
+    height:25px;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    margin-top: 5px;
 }
 
 /* ------------ Destination Form ------- */
@@ -184,4 +191,10 @@ form.login a:hover{
 
 .form-control{
     margin-bottom: 26px;
+}
+
+/* --------- Destination List --------- */
+.list-group-item{
+    border: none;
+    padding: 10px 0px;
 }
