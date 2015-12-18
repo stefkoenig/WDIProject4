@@ -4,12 +4,12 @@
 <div class="col-md-3">
   <div>
     <h1>Hello {{edit.userData.username}}!</h1>
-    <p>Age: {{edit.userData.age}}</p>
-    <p>Bio: {{edit.userData.bio}}</p>
+    <p><strong>Age:</strong> {{edit.userData.age}}</p>
+    <p><strong>Bio:</strong> {{edit.userData.bio}}</p>
   </div>
   <div ng-show="edit.userData.resident == true">
-    <p>How long I've lived in CA: {{edit.userData.timeInCa}}</p>
-    <p>Current City: {{edit.userData.location}}</p>
+    <p><strong>How long I've lived in CA:</strong> {{edit.userData.timeInCa}}</p>
+    <p><strong>Current City: </strong> {{edit.userData.location}}</p>
   </div>
   <div>
     <h3>Saved Destinations:</h3>
