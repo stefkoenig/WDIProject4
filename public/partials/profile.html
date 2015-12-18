@@ -1,5 +1,7 @@
 <div class="navPad"></div>
 <div class="container">
+
+<div class="col-md-3">
   <div>
     <h1>Hello {{edit.userData.username}}!</h1>
     <p>Age: {{edit.userData.age}}</p>
@@ -12,44 +14,78 @@
   <div>
     <h3>Saved Destinations:</h3>
     <p ng-repeat="dest in edit.userData.destinations">{{dest}}</p>
-  </div>
-  <div>
-    <button class="btn btn-block" ng-click="edit.editing=!edit.editing">Update User Information</button>
-    <button class="btn btn-danger btn-block" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
-  </div>
+  </div> 
 </div>
 
-<div class="row" id="login-container" ng-show="edit.editing">
-      <div class="col-md-8">
-          <div class="wrap form-group">
-              <p class="form-title">Edit User Information</p>
-              <form class="login" ng-submit="edit.saveUser()">
-                <input type="text" class="form-control" placeholder="Email" ng-model="edit.userData.email"/>
-                <input type="password" class="form-control" placeholder="Password" ng-model="edit.userData.password"/>
-                <input type="text" class="form-control" placeholder="Age" ng-model="edit.userData.age"/>
-                <input type="text" class="form-control" placeholder="Enter a short bio here" ng-model="edit.userData.bio"/>
-                <label for="resident-of-ca">Are you a resident of CA?</label>
-                <input type="radio" name="resident" ng-value="true" ng-model="edit.userData.resident"/>Yes
-                <input type="radio" name="resident" ng-value="false" ng-model="edit.userData.resident"/>No
-                <label for="years-in-ca" ng-show="edit.userData.resident == true">How long have you lived in CA?</label>
-                <select name="timeInCa" ng-show="edit.userData.resident == true" ng-model="edit.userData.timeInCa">
-                  <option ng-value="{{edit.userData.timeInCa}}">{{edit.userData.timeInCa}}</option>
-                  <option ng-value="'Less than 1 year'">Less than 1 year</option>
-                  <option ng-value="'1 - 3 years'"> 1 - 3 years </option>
-                  <option ng-value="'3 - 5 years'"> 3 - 5 years </option>
-                  <option ng-value="'5 - 7 years'"> 5 - 7 years </option>
-                  <option ng-value="'7 - 9 years'"> 7 - 9 years </option>
-                  <option ng-value="'10+ years'"> 10+ years </option>
-                </select>
-                <input ng-show="edit.userData.resident == true" type="text" class="form-control" placeholder="Current City" ng-model="edit.userData.location"/>
-                <button type="submit" class="loginbtn btn btn-success btn-sm">
+<div class="col-md-6">
+
+          <div class="form-group" ng-show="edit.editing">
+
+              <p id='editTitle'>Update Your Information!</p>
+
+              <form ng-submit="edit.saveUser()">
+
+
+               <p>Email:</p>
+               <input type="text" class="form-control userForm" placeholder="Email" ng-model="edit.userData.email"/>
+
+               <p>Password:</p>
+                <input type="password" class="form-control userForm" placeholder="Password" ng-model="edit.userData.password"/>
+
+                <p>Age:</p>
+                <input type="text" class="form-control userForm" placeholder="Age" ng-model="edit.userData.age"/>
+
+                <p>Short Bio:</p>
+                <input type="text" class="form-control userForm" placeholder="Enter a short bio here" ng-model="edit.userData.bio"/>
+
+                <p>Are you a resident of CA?</p>
+                <div class="form-control userForm">
+                <label for="resident-of-ca"></label>
+
+                        <input type="radio" name="resident" ng-value="true" ng-model="edit.userData.resident"/>Yes
+
+                        <input type="radio" name="resident" ng-value="false" ng-model="edit.userData.resident"/>No
+                </div>
+
+                <p>How long have you lived in CA:</p>
+                <div class="form-control userForm" ng-show="edit.userData.resident == true">
+                  <select name="timeInCa" ng-show="edit.userData.resident == true" ng-model="edit.userData.timeInCa">
+                    <option ng-value="{{edit.userData.timeInCa}}">{{edit.userData.timeInCa}}</option>
+                    <option ng-value="'Less than 1 year'">Less than 1 year</option>
+                    <option ng-value="'1 - 3 years'"> 1 - 3 years </option>
+                    <option ng-value="'3 - 5 years'"> 3 - 5 years </option>
+                    <option ng-value="'5 - 7 years'"> 5 - 7 years </option>
+                    <option ng-value="'7 - 9 years'"> 7 - 9 years </option>
+                    <option ng-value="'10+ years'"> 10+ years </option>
+                  </select>
+
+                </div>
+
+                <p>Current City:</p>
+                <input class="form-control userForm" ng-show="edit.userData.resident == true" type="text" class="form-control" placeholder="Current City" ng-model="edit.userData.location"/>
+
+                <button type="submit" class="btn updateBtn">
                   Submit
                 </button>
-                <div class="signup">
-                    <a ng-href="#/maps" class="new-user">Back to map</a>
-                </div>
+                
+                <a ng-href="#/maps" class="btn">Back to map</a>
+                
               </form>
-          </div>
-      </div>
-</div>
+
+    </div>
+  </div> 
+ 
+ <div class="col-md-3">
+    <div>
+      <button class="profBtn" ng-click="edit.editing=!edit.editing">Update User Information</button>
+    </div>
+    <div>    
+      <button class="profBtn" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
+    </div> 
+ </div>  
+
+
+
+ </div> 
+
 </div>
