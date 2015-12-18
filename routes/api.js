@@ -264,7 +264,9 @@ apiRouter.get('/destroy-all', function(req,res){
   	// 	});
   	// })
     .get(function(req, res) {
-  		User.findOne({username: req.params.username}, function(err, user) {
+  		User.findOne({username: req.params.username})
+      .populate('destinations')
+      .exec( function(err, user) {
   			if (err) res.send(err);
 
   			// return that user

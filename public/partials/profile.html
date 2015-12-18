@@ -13,8 +13,14 @@
   </div>
   <div>
     <h3>Saved Destinations:</h3>
-    <p ng-repeat="dest in edit.userData.destinations">{{dest}}</p>
-  </div> 
+    <ul class="list-group">
+      <li ng-repeat="dest in edit.userData.destinations" class="list-group-item">
+          <h4><strong>{{dest.name}}</strong></h4>
+          <p>{{dest.address}}</p>
+          <p ng-repeat="comment in dest.comments"><strong>Description: </strong>{{comment}}</p>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="col-md-6">
@@ -67,25 +73,25 @@
                 <button type="submit" class="btn updateBtn">
                   Submit
                 </button>
-                
+
                 <a ng-href="#/maps" class="btn">Back to map</a>
-                
+
               </form>
 
     </div>
-  </div> 
- 
+  </div>
+
  <div class="col-md-3">
     <div>
       <button class="profBtn" ng-click="edit.editing=!edit.editing">Update User Information</button>
     </div>
-    <div>    
+    <div>
       <button class="profBtn" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
-    </div> 
- </div>  
+    </div>
+ </div>
 
 
 
- </div> 
+ </div>
 
 </div>
