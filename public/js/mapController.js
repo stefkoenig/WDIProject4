@@ -52,6 +52,7 @@
 
 			function geocodeAddress(geocoder, resultsMap, dest) {
 				dest.forEach(function(data){
+					console.log('Here is the data you search: ',data)
 					var address = data.address
 					console.log(address, "what are you:")
 
@@ -68,16 +69,16 @@
 					      	})
 
 					      	var contentString = '<div id="content">'+
-							      '<div id="siteNotice">'+
-							      '</div>'+
-							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
+							      '<div id="siteNotice">'+ 
+							      '</div>'+ 
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+ 
 							      '<div id="bodyContent">'+
 							      '<p><b>Address:</b> '+ data.address +'</p>'+
-							      '<p><b>Comments:</b> '+ data.comments +'</p>'+
-							      '<p>Yelp: A link: <a href="https://"somewhere">' + '</a>'+
+							      '<p><b>Description:</b> '+ data.comments + '</p>'+ '<br>' + 
 							      '</p>'+
 							      '</div>'+
-							      '</div>';
+							      '</div>'; 
+							      
 				  			var infowindow = new google.maps.InfoWindow({
 	    						content: contentString
 	  						});
@@ -114,6 +115,12 @@
 				setDest.then(function(dest) {
 					self.geocoderSpot(dest)
 					console.log('the then promise worked!')
+				})
+			}
+
+			self.addFavorite = function(destId, username){
+				self.api.addFavorite(destId, username).success(function(response){
+				console.log('you are in the addFavorite: ', response)
 				})
 			}
 		}

@@ -1,4 +1,4 @@
-var 
+var
 	mongoose     = require('mongoose'),
  	Schema       = mongoose.Schema,
 	bcrypt 		 = require('bcrypt-nodejs')
@@ -11,11 +11,12 @@ var userSchema   = new Schema({
 	age: Number,
 	bio: String,
 	resident: Boolean,
-	timeInCa: Number,
-	location: String
+	timeInCa: String,
+	location: String,
+	destinations: [{type: String}]
 });
 
-//save and hash the password 
+//save and hash the password
 userSchema.pre('save', function(next) {
 	var user = this;
 	if (!user.isModified('password')) return next();

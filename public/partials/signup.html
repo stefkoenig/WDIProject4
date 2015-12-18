@@ -1,26 +1,38 @@
-<div class="row" id="login-container">
-  <div class="logon">
-      <div class="col-md-8">
-          <div class="wrap form-group">
-              <p class="form-title">Sign Up</p>
-              <form class="login" ng-submit="user.saveUser()">
-                <input type="text" class="form-control" placeholder="Username" ng-model="user.userData.username"/>
-                <input type="text" class="form-control" placeholder="Email" ng-model="user.userData.email"/>
-                <input type="password" class="form-control" placeholder="Password" ng-model="user.userData.password"/>
-                <input type="password" class="form-control" placeholder="Confirm Password" ng-model="user.userData.password"/>
-                <input type="number" class="form-control" placeholder="Age" ng-model="user.userData.age"/>
-                <input type="text" class="form-control" placeholder="Enter a short bio here" ng-model="user.userData.bio"/>
-                <input type="text" class="form-control" placeholder="Are you a resident of CA?" ng-model="user.userData.resident"/>
-                <input type="text" class="form-control" placeholder="How many years have you lived in CA?" ng-model="user.userData.timeInCa"/>
-                <input type="text" class="form-control" placeholder="Current City" ng-model="user.userData.location"/>
-                <button type="submit" class="loginbtn btn btn-success btn-sm">
-                  Sign up!
-                </button>
-                <div class="signup">
-                    <a ng-href="#/login" class="new-user">Already a user? Log in.</a>
-                </div>
-              </form>
-          </div>
-      </div>
+<div class="navPad"></div>
+<div class="container">
+  <div class="row" id="login-container">
+    <div class="logon">
+        <div class="col-md-8">
+            <div class="wrap form-group">
+                <p class="form-title">Sign Up</p>
+                <form class="login" ng-submit="user.saveUser()">
+                  <input type="text" class="form-control" placeholder="Username" ng-model="user.userData.username"/>
+                  <input type="text" class="form-control" placeholder="Email" ng-model="user.userData.email"/>
+                  <input type="password" class="form-control" placeholder="Password" ng-model="user.userData.password"/>
+                  <input type="text" class="form-control" placeholder="Age" ng-model="user.userData.age"/>
+                  <input type="text" class="form-control" placeholder="Enter a short bio here" ng-model="user.userData.bio"/>
+                  <label for="resident-of-ca">Are you a resident of CA?</label>
+                  <input type="radio" name="resident" value="true" ng-model="user.userData.resident"/>Yes
+                  <input type="radio" name="resident" value="false" ng-model="user.userData.resident"/>No
+                  <label for="years-in-ca" ng-show="user.userData.resident == 'true'">How long have you lived in CA?</label>
+                  <select name="timeInCa" ng-show="user.userData.resident == 'true'" ng-model="user.userData.timeInCa">
+                    <option value="Less than 1 year">Less than 1 year</option>
+                    <option value="1 - 3 years"> 1 - 3 years </option>
+                    <option value="3 - 5 years"> 3 - 5 years </option>
+                    <option value="5 - 7 years"> 5 - 7 years </option>
+                    <option value="7 - 9 years"> 7 - 9 years </option>
+                    <option value="10+ years"> 10+ years </option>
+                  </select>
+                  <input ng-show="user.userData.resident == 'true'" type="text" class="form-control" placeholder="Current City" ng-model="user.userData.location"/>
+                  <button type="submit" class="loginbtn btn btn-success btn-sm">
+                    Sign up!
+                  </button>
+                  <div class="signup">
+                      <a ng-href="#/login" class="new-user">Already a user? Log in.</a>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
   </div>
-<div>
+</div>

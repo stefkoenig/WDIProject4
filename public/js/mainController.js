@@ -1,22 +1,24 @@
-angular.module('mainCtrl', [])
+angular.module('mainCtrl', ['userService'])
 
-.controller('mainController', function($rootScope, $location, Auth) {
+.controller('mainController', function($rootScope, $location, Auth, User) {
 
 	var mainCtrl = this;
 
-	// get info if a person is logged in
+	// // get info if a person is logged in
 	mainCtrl.loggedIn = Auth.isLoggedIn()
-
+	console.log("User is logged in:", mainCtrl.loggedIn)
 	// check to see if a user is logged in on every request
 	$rootScope.$on('$routeChangeStart',function(){
 		mainCtrl.loggedIn = Auth.isLoggedIn()
-
 		// get user information on page load
 		Auth.getUser()
 			.then(function(data){
+				console.log('LOOK:', data)
 				mainCtrl.user = data.data
+			
+				})
+
 			})
-	})
 
 	// function to handle login form
 	mainCtrl.doLogin = function(){
