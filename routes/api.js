@@ -285,7 +285,7 @@ apiRouter.get('/destroy-all', function(req,res){
   			if (req.body.age) user.age = req.body.age;
   			if (req.body.bio) user.bio = req.body.bio;
   			if (req.body.resident) user.resident = req.body.resident;
-  			if (req.body.timeInCa) user.timeInCa = req.body.timeInCA;
+  			if (req.body.timeInCa) user.timeInCa = req.body.timeInCa;
   			if (req.body.location) user.location = req.body.location;
 
   			// save the user

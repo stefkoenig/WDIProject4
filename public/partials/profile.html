@@ -1,7 +1,18 @@
 <div class="navPad"></div>
 <div class="container">
-Hello {{main.user.username}}!
-
+  <div>
+    <h1>Hello {{edit.userData.username}}!</h1>
+    <p>Age: {{edit.userData.age}}</p>
+    <p>Bio: {{edit.userData.bio}}</p>
+  </div>
+  <div ng-show="edit.userData.resident == true">
+    <p>How long I've lived in CA: {{edit.userData.timeInCa}}</p>
+    <p>Current City: {{edit.userData.location}}</p>
+  </div>
+  <div>
+    <h3>Saved Destinations:</h3>
+    <p ng-repeat="dest in edit.userData.destinations">{{dest}}</p>
+  </div>
   <div>
     <button class="btn btn-block" ng-click="edit.editing=!edit.editing">Update User Information</button>
     <button class="btn btn-danger btn-block" ng-click="edit.deleteUser(main.user.username)">Delete User</button>
@@ -9,12 +20,10 @@ Hello {{main.user.username}}!
 </div>
 
 <div class="row" id="login-container" ng-show="edit.editing">
-  <div class="logon">
       <div class="col-md-8">
           <div class="wrap form-group">
               <p class="form-title">Edit User Information</p>
               <form class="login" ng-submit="edit.saveUser()">
-                <input type="text" class="form-control" placeholder="Username" ng-model="edit.userData.username"/>
                 <input type="text" class="form-control" placeholder="Email" ng-model="edit.userData.email"/>
                 <input type="password" class="form-control" placeholder="Password" ng-model="edit.userData.password"/>
                 <input type="text" class="form-control" placeholder="Age" ng-model="edit.userData.age"/>
@@ -24,13 +33,13 @@ Hello {{main.user.username}}!
                 <input type="radio" name="resident" ng-value="false" ng-model="edit.userData.resident"/>No
                 <label for="years-in-ca" ng-show="edit.userData.resident == true">How long have you lived in CA?</label>
                 <select name="timeInCa" ng-show="edit.userData.resident == true" ng-model="edit.userData.timeInCa">
-                  <option value="{{edit.userData.timeInCa}}" selected>{{edit.userData.timeInCa}}</option>
-                  <option value="Less than 1 year">Less than 1 year</option>
-                  <option value="1 - 3 years"> 1 - 3 years </option>
-                  <option value="3 - 5 years"> 3 - 5 years </option>
-                  <option value="5 - 7 years"> 5 - 7 years </option>
-                  <option value="7 - 9 years"> 7 - 9 years </option>
-                  <option value="10+ years"> 10+ years </option>
+                  <option ng-value="{{edit.userData.timeInCa}}">{{edit.userData.timeInCa}}</option>
+                  <option ng-value="'Less than 1 year'">Less than 1 year</option>
+                  <option ng-value="'1 - 3 years'"> 1 - 3 years </option>
+                  <option ng-value="'3 - 5 years'"> 3 - 5 years </option>
+                  <option ng-value="'5 - 7 years'"> 5 - 7 years </option>
+                  <option ng-value="'7 - 9 years'"> 7 - 9 years </option>
+                  <option ng-value="'10+ years'"> 10+ years </option>
                 </select>
                 <input ng-show="edit.userData.resident == true" type="text" class="form-control" placeholder="Current City" ng-model="edit.userData.location"/>
                 <button type="submit" class="loginbtn btn btn-success btn-sm">
@@ -42,4 +51,5 @@ Hello {{main.user.username}}!
               </form>
           </div>
       </div>
-  </div>
+</div>
+</div>

@@ -96,11 +96,10 @@ angular.module('userCtrl', ['userService','authService'])
 			.success(function(data) {
 				vm.processing = false;
 
-				// clear the form
-				vm.userData = {}
-
 				// bind the message from our API to vm.message
 				vm.message = data.message;
+				console.log(vm.message)
+				vm.editing = false
 			})
 		}
 
