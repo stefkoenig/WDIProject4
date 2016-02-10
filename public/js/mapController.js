@@ -69,16 +69,16 @@
 					      	})
 
 					      	var contentString = '<div id="content">'+
-							      '<div id="siteNotice">'+ 
-							      '</div>'+ 
-							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+ 
+							      '<div id="siteNotice">'+
+							      '</div>'+
+							      '<h1 id="firstHeading" class="firstHeading">' + data.name + '</h1>'+
 							      '<div id="bodyContent">'+
 							      '<p><b>Address:</b> '+ data.address +'</p>'+
-							      '<p><b>Description:</b> '+ data.comments + '</p>'+ '<br>' + 
+							      '<p><b>Description:</b> '+ data.comments + '</p>'+ '<br>' +
 							      '</p>'+
 							      '</div>'+
-							      '</div>'; 
-							      
+							      '</div>';
+
 				  			var infowindow = new google.maps.InfoWindow({
 	    						content: contentString
 	  						});
@@ -89,7 +89,7 @@
 
 
 				    	} else {
-				    	  	alert('Geocode was not successful for the following reason: ' + status);
+				    	  	console.log('Geocode was not successful for the following reason: ' + status);
 				   		}
 			  		})
 
